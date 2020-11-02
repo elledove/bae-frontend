@@ -5,19 +5,19 @@ import {createStore, applyMiddleware,compose} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import menuReducer from './reducers/menuReducer';
-
+import orderReducer from './reducers/orderReducer';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(menuReducer,composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(orderReducer,composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
-  <React.StrictMode>
+  
     <Provider store={store}>
 
     <App />
-    </Provider>
+    </Provider>,
     
-  </React.StrictMode>,
+  
   document.getElementById('root')
 );
 
