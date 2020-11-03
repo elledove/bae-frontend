@@ -21,14 +21,16 @@ class OrdersContainer extends Component {
 
             Orders Container has:
             <OrderForm/>
-            <OrderList orders={this.props.orders}/>
+            <OrderList orders={this.props.orders} />
         </div> );
     }
 }
 
 
 const mapStateToProps =(state) =>{
+    //console.log("This is the state", state.orders)
     return {orders: state.orders}
+    
 
 }
  
