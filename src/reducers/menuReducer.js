@@ -1,4 +1,13 @@
 export default function menuReducer(state = {menu_items:[]},action){
-    return state
+    switch(action.type){
+        case 'FETCH_MENU':
+            return{menu_items:action.payload}
+                
+            
+    }
+    
+    
+    
+    return state;
 
 }

@@ -21,12 +21,12 @@ import React, { Component } from 'react';
                 </ul>
             )}
             
-            {props.orders.map(o => o.menu_items.map(m => <ul key={m.id}>
+            {/* {props.orders.map(o => o.menu_items.map(m => <ul key={m.id}>
             <li>{m.name} </li> 
             </ul>
             )
              
-           )}
+           )} */}
             
         </div>
     )
