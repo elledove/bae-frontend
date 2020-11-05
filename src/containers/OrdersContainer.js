@@ -2,9 +2,10 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {Route} from 'react-router-dom';
 import {fetchOrders} from '../actions/fetchOrders';
-import OrderForm from '../components/OrderForm';
+
 import OrderList from "../components/OrderList";
 
+import Order from '../components/Order'
 
 
 
@@ -18,15 +19,18 @@ class OrdersContainer extends Component {
 
 
     render() { 
+        
         return ( <div>
 
             Orders Container has:
-            <Route path='/orders/new'component={OrderForm}/>
-
+            
+            {this.props.orders.map(order =>
+                <Order order={order} />                
+            )}
             {/* <OrderForm/> */}
             <br></br>
 
-            <Route exact path='/orders' render ={ () =><OrderList orders={this.props.orders} />}/>
+            {/* <Route exact path='/orders' render ={ () =><OrderList orders={this.props.orders} />}/> */}
             {/* <OrderList orders={this.props.orders} /> */}
         </div> );
     }

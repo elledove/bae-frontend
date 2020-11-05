@@ -1,19 +1,37 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import addOrder from '../actions/addOrder';
+import {fetchMenuItems} from '../actions/fetchMenuItems';
+import { CheckBox } from './CheckBox';
+
 
 
 
 class OrderForm extends Component {
     state = { 
-        name: '',
-    lquantity: 0,
-    bpquantity: 0,
-    squantity: 0,
-    strwbryquantity: 0
+    name_for_order: '',
+    menu_item_ids: []
 
      }
 
+     componentDidMount(){
+        this.props.fetchMenuItems();
+   
+       }
 
+       handleCheckBox = e => {
+           if ( this.state.menu_item_ids.includes(e.target.value)) {
+
+               this.setState( state => {
+                   return { menu_item_ids: state.menu_item_ids.filter(item => item !== e.target.value )}
+               })
+           } else {
+            this.setState( state => {
+                return { menu_item_ids: [...state.menu_item_ids,e.target.value]}
+            })
+           }
+           
+       }
      handleChange =(event) =>{
         // debugger;
         this.setState({
@@ -24,7 +42,9 @@ class OrderForm extends Component {
 
 
      handleSubmit = (event) => {
+         //Keeps page from re-rendering and losing our form data;
          event.preventDefault();
+         this.props.addOrder(this.state);
      }
 
 
@@ -33,40 +53,18 @@ class OrderForm extends Component {
         return ( <div>
             <form id="orderform" onSubmit={this.handleSubmit}>
             <label>Name For Order:</label>
-           <input type="text" placeholder="name for order"name="name" value={this.state.name} onChange={this.handleChange}/>
+           <input type="text" placeholder="name for order"name="name_for_order" value={this.state.name_for_order} onChange={this.handleChange}/>
            <br></br>
            <br></br>
            <br></br>
-           <label for="entres"> Choose Your Entres Quantity: </label>
-           <br></br>
-           <br></br>
-           <label> Lasagna</label>
-          ---
-           <input type="number" id="quantity" name="lquantity" min="0" max="5" value={this.state.lquantity} onChange={this.handleChange}/>
-           <br></br>
-          <label> Salmon Platter</label>
-          ---
-          <input type="number" id="quantity" name="squantity" min="0" max="3" value={this.state.squantity} onChange={this.handleChange}/>
+                {this.props.menuItems.map( (item) =>
+                    
+                    <CheckBox key={item.id} {...item} handleCheckBox={this.handleCheckBox}/>  
+                    )}
 
-           <br></br>
-           <label> Banana Pudding</label>
-          ---
-          <input type="number" id="quantity" name="bpquantity" min="0" max="3" value={this.state.bpquantity} onChange={this.handleChange}/>
-          <br></br>
-          <label> Strawberry Lemonade</label>
-          ---
-          <input type="number" id="quantity" name="strwbryquantity" min="0" max="3" value={this.state.strwbryquantity} onChange={this.handleChange}/>
-
-          <br></br>
-
-          
-
-
-
-
+    
            <input type="submit"/>
-
-                
+ 
             </form>
             
             <br></br>
@@ -78,5 +76,11 @@ class OrderForm extends Component {
         </div> );
     }
 }
- 
-export default OrderForm;
+
+const mapStateToProps =(state) =>{
+    console.log("this is just state for menu", state)
+    console.log("This is THE state for menu", state.menuz.menu_items)
+    
+    return {menuItems: state.menuz.menu_items}
+ }
+export default connect(mapStateToProps,{addOrder,fetchMenuItems}) (OrderForm);

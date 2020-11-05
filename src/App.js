@@ -1,8 +1,10 @@
 import './App.css';
 import React,{Component} from 'react';
+import {Route} from 'react-router-dom';
 import MenuItems from './containers/MenuItemsContainer';
-import Orders from './containers/OrdersContainer';
-
+import OrdersContainer from './containers/OrdersContainer';
+import OrderForm from './components/OrderForm';
+import Home from './components/Home';
 
 class App extends Component {
   
@@ -14,9 +16,13 @@ class App extends Component {
         <h4>To see the menu visit:  http://localhost:3001/menu</h4>
         <h4>To see your orders vist:  http://localhost:3001/orders</h4>
          <h4>To place an order vist: http://localhost:3001/orders/new </h4>
-         
-        <Orders/>
-        <MenuItems/>
+         <Route path='/orders/new'component={OrderForm}/>
+         <Route exact path='/orders'component={OrdersContainer}/>
+         <Route path="/menu" component={MenuItems}/>
+         <Route path="/home" component={Home}/>
+
+        
+        
       </div>
      );
   }
