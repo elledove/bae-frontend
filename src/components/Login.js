@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import {startCreateUser} from '../actions/userAction';
+import {startLogin} from '../actions/userAction';
 
 
-class Registration extends Component {
+class Login extends Component {
     state = { 
         email: "",
         password:"",
-        passwordConfirmation:""
+        
 
      }
 
      
 
      handleSubmit =(e) =>{
-        const {startCreateUser} = this.props;
+        const {startLogin} = this.props;
          console.log(this.state)
         e.preventDefault();
-        startCreateUser(this.state);
+        startLogin(this.state);
         this.setState({
             email: "",
         password:"",
-        passwordConfirmation:""
+        
         })
      }
 
@@ -42,8 +42,8 @@ class Registration extends Component {
                     <form onSubmit={this.handleSubmit}>
                     <input type="email" name="email"value={this.state.email} onChange={this.handleChange}/>
                     <input type="password" name="password"value={this.state.password} onChange={this.handleChange}/>
-                    <input type="password" name="passwordConfirmation"value={this.state.passwordConfirmation} onChange={this.handleChange}/>
-                    <button type="submit"> Sign-Up</button>
+                    {" "}
+                    <button type="submit"> Login</button>
 
 
 
@@ -56,7 +56,7 @@ class Registration extends Component {
     }
 }
  
-export default connect(null,{startCreateUser})(Registration);
+export default connect(null,{startLogin})(Login);
 
 
 

@@ -1,15 +1,23 @@
 import './App.css';
 import React,{Component} from 'react';
 import {Route} from 'react-router-dom';
+import {connect} from 'react-redux';
 import MenuItems from './containers/MenuItemsContainer';
 import OrdersContainer from './containers/OrdersContainer';
 import OrderForm from './components/OrderForm';
 import Home from './components/Home';
+import Registration from './components/Registration';
+import {checkLoggedInStatus} from './actions/userAction';
+import Login from './components/Login';
 
 class App extends Component {
+  componentDidMount(){
+    this.props.checkLoggedInStatus();
+  }
   
   
   render() { 
+    console.log(this.props.user)
     return ( 
       <div className="App">
         Hello World! Its Me!
@@ -19,13 +27,21 @@ class App extends Component {
          <Route path='/orders/new'component={OrderForm}/>
          <Route exact path='/orders'component={OrdersContainer}/>
          <Route path="/menu" component={MenuItems}/>
-         <Route path="/home" component={Home}/>
-
+         <Route path="/sign-up" component={Registration}/>
+         <Route exact path='/login' component={Login}/>
+         <Route exact path="/" render={ (props) => <Home 
+         currentUser={this.props.user} loggedIn={this.props.loggedIn} {...props}/>}/>
         
         
       </div>
      );
   }
 }
+
+const mapStateToProps = (state) => ({
+  user: state.user.currentUser,
+  loggedIn: state.user.loggedIn
+
+})
  
-export default App;
+export default connect(mapStateToProps,{checkLoggedInStatus}) (App);

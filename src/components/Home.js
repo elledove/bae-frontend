@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {logOut} from '../actions/userAction';
+ class Home extends Component {
 
- const Home = () => {
-     return(
+handleLogOut = () => {
+     this.props.logOut();
+}
+
+
+
+   render(){
+    return(
         <div>
-        HOME!
-        status: add in props to verify logged in.
-    
+        HOME! {this.props.currentUser ? this.props.currentUser.email : null }
+        Status:  {this.props.loggedIn ? "You're Logged In" : null}
+        <button onClick={this.handleLogOut}> Sign Out </button>
         </div>
      )
+
+   }
+
+
+
+     
     
 }
 
 
 
-export default  Home;
+export default connect(null,{logOut})(Home);
+
+
