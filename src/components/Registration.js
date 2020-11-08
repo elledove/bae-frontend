@@ -37,12 +37,20 @@ class Registration extends Component {
 
 
     render() { 
-        return ( <div>
+        return ( <div className="-register-form-div">
+                  <h3> Sign up to place an order</h3>
+                  <br/>
 
                     <form onSubmit={this.handleSubmit}>
-                    <input type="email" name="email"value={this.state.email} onChange={this.handleChange}/>
-                    <input type="password" name="password"value={this.state.password} onChange={this.handleChange}/>
-                    <input type="password" name="passwordConfirmation"value={this.state.passwordConfirmation} onChange={this.handleChange}/>
+                    <label> Email:</label> {" "}
+                    <input type="email" name="email"value={this.state.email} placeholder="enter email address" onChange={this.handleChange}/>
+                    <br></br>
+                    <label> Enter Password:</label> {" "}
+                    <input type="password" name="password"value={this.state.password} placeholder="enter password" onChange={this.handleChange}/>
+                    <br></br>
+                    <label> Enter Password Again:</label> {" "}
+                    <input type="password" name="passwordConfirmation"value={this.state.passwordConfirmation}  placeholder="confirm password"  onChange={this.handleChange}/>
+                    <br></br>
                     <button type="submit"> Sign-Up</button>
 
 

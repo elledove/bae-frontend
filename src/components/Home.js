@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {logOut} from '../actions/userAction';
+import {Caro} from './Caro';
  class Home extends Component {
 
 handleLogOut = () => {
@@ -12,9 +13,14 @@ handleLogOut = () => {
    render(){
     return(
         <div>
-        HOME! {this.props.currentUser ? this.props.currentUser.email : null }
+       
+        <br/>
+        {this.props.currentUser ? this.props.currentUser.email : null }
         Status:  {this.props.loggedIn ? "You're Logged In" : null}
+        {" "}
+        <br></br>
         <button onClick={this.handleLogOut}> Sign Out </button>
+        <Caro/>
         </div>
      )
 

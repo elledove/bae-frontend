@@ -23,6 +23,7 @@ class Login extends Component {
         password:"",
         
         })
+        this.props.history.push("/")
      }
 
 

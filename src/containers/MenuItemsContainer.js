@@ -17,7 +17,7 @@ class MenuItemsContainer extends Component {
                 <br></br>
                
                <Route exact path='/menu' render ={ () =><MenuList menuitems={this.props.menuitems}/>}/>
-                {/* <MenuList menuitems={this.props.menuitems}/> */}
+                
             </div>
          );
     }
