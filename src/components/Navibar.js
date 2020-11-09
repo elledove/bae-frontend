@@ -16,8 +16,8 @@ export const Navibar = () => (
       
       <NavDropdown title="" id="collasible-nav-dropdown">
         <NavDropdown.Item href="/orders">View Past Orders</NavDropdown.Item>
-        {/* <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+        <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+        {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
         <NavDropdown.Divider />
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
       </NavDropdown>

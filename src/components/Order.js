@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 
 
@@ -6,28 +6,26 @@ import React, { Component } from 'react';
      
     
     return (
+        
         <div>
-            Order List            
+                      
 
                 <ul key={order.id}>
-                <li > {order.total}</li>
-                <li > {order.name_for_order}</li>
+                <li > Total: ${order.total}</li>
+                <li > Pick-up Name: {order.name_for_order}</li>
                   {order.menu_items.map(o => 
                   <div>
                            <h4>{o.name}</h4>
                       <p>{o.description}</p>
+                      
                       </div>
+                      
                   )}  
 
                 </ul>
-            )
             
-            {/* {props.orders.map(o => o.menu_items.map(m => <ul key={m.id}>
-            <li>{m.name} </li> 
-            </ul>
-            )
-             
-           )} */}
+            
+            
             
         </div>
     )

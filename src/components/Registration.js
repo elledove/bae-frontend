@@ -23,6 +23,7 @@ class Registration extends Component {
         password:"",
         passwordConfirmation:""
         })
+        this.props.history.push("/login")
      }
 
 

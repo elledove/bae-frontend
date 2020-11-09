@@ -3,11 +3,11 @@ export default function menuReducer(state = {menu_items:[]},action){
         case 'FETCH_MENU':
             return{menu_items:action.payload}
                 
-            
+            default: return state;
     }
     
     
     
-    return state;
+    
 
 }

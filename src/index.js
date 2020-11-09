@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-// import './index.css';
 import {createStore, applyMiddleware,compose,combineReducers} from 'redux';
 import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
-import menuReducer from './reducers/menuReducer';
-import orderReducer from './reducers/orderReducer';
 import rootReducer from './reducers/rootReducers';
 import {BrowserRouter as Router} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';

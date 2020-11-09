@@ -1,6 +1,5 @@
 export default function addOrder(data){
-    // debugger;
-    const order = {name:data.name, menu_item_ids:data.menu_item_ids}
+    // const order = {name:data.name, menu_item_ids:data.menu_item_ids}
     return (dispatch) => {
         fetch("http://localhost:3001/api/v2/orders", {
         credentials: "include",

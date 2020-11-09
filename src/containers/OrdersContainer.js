@@ -22,16 +22,15 @@ class OrdersContainer extends Component {
         
         return ( <div>
 
-            Orders Container has:
+             <h2> Recent Orders List</h2> 
             
             {this.props.orders.map(order =>
                 <Order order={order} />                
             )}
-            {/* <OrderForm/> */}
+            
             <br></br>
 
-            {/* <Route exact path='/orders' render ={ () =><OrderList orders={this.props.orders} />}/> */}
-            {/* <OrderList orders={this.props.orders} /> */}
+            
         </div> );
     }
 }
