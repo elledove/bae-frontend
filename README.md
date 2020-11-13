@@ -19,8 +19,11 @@ Currently, only mock orders can be placed.
 
 
 
-To run this app:
+To run this app(frontend):
 
-- First, from the terminal, launch yarn start or npm (See back end set up first!)
+- First, from the terminal, launch yarn start or npm start (See back-end set up first!)
 {This is said, with the assumtion that you have yarn or node set up on your local device.}
--This This launch the server set up under localhost:3000
+-This will launch the server on localhost:3000
+
+
+Enjoy!
