@@ -1,10 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import {Route} from 'react-router-dom';
 import {fetchOrders} from '../actions/fetchOrders';
-
-import OrderList from "../components/OrderList";
-
 import Order from '../components/Order'
 
 

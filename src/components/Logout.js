@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {logOut} from '../actions/userAction';
-// import {Caro} from './Caro';
+
  class Logout extends Component {
 
 handleLogOut = () => {

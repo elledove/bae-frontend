@@ -24,8 +24,8 @@ class MenuItemsContainer extends Component {
 }
 
 const mapStateToProps =(state) =>{
-    console.log("this is just state for menu", state)
-    console.log("This is THE state for menu", state.menuz.menu_items)
+    //console.log("this is just state for menu", state)
+    //console.log("This is THE state for menu", state.menuz.menu_items)
     
     return {menuitems: state.menuz.menu_items}
     

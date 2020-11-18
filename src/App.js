@@ -1,6 +1,6 @@
 import './App.css';
 import React,{Component} from 'react';
-import {Route} from 'react-router-dom';
+import {BrowserRouter as Router,Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 import MenuItems from './containers/MenuItemsContainer';
 import OrdersContainer from './containers/OrdersContainer';
@@ -11,6 +11,7 @@ import {checkLoggedInStatus} from './actions/userAction';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import {Navibar} from './components/Navibar';
+import logo from './images/bae-logo.jpg'
 
 
 class App extends Component {
@@ -22,13 +23,15 @@ class App extends Component {
   render() { 
     console.log(this.props.user)
     return ( 
-      <div className="App">
+      <Router>
         <Navibar/>
+      <div className="App">
+        
         <br></br>
-        <img src="images/bae-logo.jpg"/>
+        <img src={logo} alt="Bless-and-Eat-Logo"/>
         <h3> <em>"Whether therefore ye eat, or drink, or whatsoever ye do, do all to the glory of God." - Cor.10:31 </em> </h3>
            <br/>
-         <Route path='/orders/new'component={OrderForm}/>
+         <Route exact path='/orders/new'component={OrderForm}/>
          <Route exact path='/orders'component={OrdersContainer}/>
          <Route path="/menu" component={MenuItems}/>
          <Route path="/sign-up" component={Registration}/>
@@ -38,6 +41,7 @@ class App extends Component {
          currentUser={this.props.user} loggedIn={this.props.loggedIn} {...props}/>}/>
         
       </div>
+      </Router>
      );
   }
 }
