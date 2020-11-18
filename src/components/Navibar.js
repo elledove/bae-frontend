@@ -41,7 +41,10 @@ return (
       </LinkContainer>
       
       <NavDropdown title="" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="/orders">View Past Orders</NavDropdown.Item>
+      <LinkContainer to="/orders">
+        <NavDropdown.Item>View Past Orders</NavDropdown.Item>
+        </LinkContainer>
+
         <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
         {/* <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
         <NavDropdown.Divider />

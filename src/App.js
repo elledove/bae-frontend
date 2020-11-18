@@ -12,6 +12,7 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import {Navibar} from './components/Navibar';
 import logo from './images/bae-logo.jpg'
+import Footer from './components/Footer';
 
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
     return ( 
       <Router>
         <Navibar/>
+       
       <div className="App">
         
         <br></br>
@@ -39,7 +41,7 @@ class App extends Component {
          <Route exact path="/" component={Home}/>
         <Route exact path="/logout" render={ (props) => <Logout 
          currentUser={this.props.user} loggedIn={this.props.loggedIn} {...props}/>}/>
-        
+         <Footer/>
       </div>
       </Router>
      );
