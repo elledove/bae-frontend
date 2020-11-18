@@ -45,7 +45,11 @@ class OrderForm extends Component {
          //Keeps page from re-rendering and losing our form data;
          event.preventDefault();
          this.props.addOrder(this.state);
-         this.props.history.push("/orders")
+        //  this.props.history.push("/orders")
+        this.props.history.push({
+            pathname: '/orders',
+            state:this.setState({ [event.target.name]: event.target.value})
+        });
         
      }
 
