@@ -22,7 +22,7 @@ class App extends Component {
   
   
   render() { 
-    console.log(this.props.user)
+    
     return ( 
       <Router>
         <Navibar/>

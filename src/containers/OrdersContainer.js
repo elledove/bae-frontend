@@ -33,8 +33,6 @@ class OrdersContainer extends Component {
 
 
 const mapStateToProps =(state) =>{
-    console.log("this is just state", state)
-    console.log("This is THE state of orders", state.orderz.orders)
     
     return {orders: state.orderz.orders}
     

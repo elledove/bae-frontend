@@ -33,16 +33,15 @@ class OrderForm extends Component {
            
        }
      handleChange =(event) =>{
-        // debugger;
+       
         this.setState({
-            //Here we are abstracting and using key:value pairs from input tags name:value
+           
             [event.target.name]: event.target.value
         })
      }
 
 
      handleSubmit = (event) => {
-         //Keeps page from re-rendering and losing our form data;
          event.preventDefault();
          this.props.addOrder(this.state);
         //  this.props.history.push("/orders")
@@ -84,8 +83,6 @@ class OrderForm extends Component {
 }
 
 const mapStateToProps =(state) =>{
-    console.log("this is just state for menu", state)
-    console.log("This is THE state for menu", state.menuz.menu_items)
     
     return {menuItems: state.menuz.menu_items}
  }

@@ -20,7 +20,7 @@ handleLogOut = () => {
         {" "}
         <br></br>
         <button onClick={this.handleLogOut}> Sign Out </button>
-        {/* <Caro/> */}
+        
         </div>
      )
 
